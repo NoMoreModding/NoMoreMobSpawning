@@ -1,0 +1,31 @@
+modLoader="javafml" #mandatory
+loaderVersion="[36,)"
+license="MIT"
+
+[[mods]]
+modId="nomoremobspawning" #mandatory
+
+version="1.16.5-0.1.0" #mandatory
+ # A display name for the mod
+displayName="No More Mob Spawning" #mandatory
+
+#logoFile="examplemod.png" #optional
+
+credits="Thanks to Wolfgang Hochleitner and Michael Lankes"
+authors="Tobias Filler, Lukas Hartinger"
+description='''
+providing an elegant way for preventing mob spawing
+'''
+
+[[dependencies.nomoretorchspam]]
+modId="forge"
+mandatory=true
+versionRange="[36,)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.nomoretorchspam]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.16.5,1.17)"
+ordering="NONE"
+side="BOTH"
