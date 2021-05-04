@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "" : {"model" : "nomoremobspawning:block/anti_mob_beacon_raw"}
+  }
+}

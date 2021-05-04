@@ -13,6 +13,6 @@ public class ItemRegistry {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, NoMoreMobSpawing.Mod_ID);
 
 
-    public static final RegistryObject<BlockItem> ANTI_MOB_BEACON = ITEMS.register("anti_mob_beacon",()-> new BlockItem(BlockRegistry.ANTI_MOB_BEACON_RAW.get(),new Item.Properties().group(ItemGroup.DECORATIONS)));
+    public static final RegistryObject<BlockItem> ANTI_MOB_BEACON_RAW = ITEMS.register("anti_mob_beacon_raw",()-> new BlockItem(BlockRegistry.ANTI_MOB_BEACON_RAW.get(),new Item.Properties().group(ItemGroup.DECORATIONS)));
 
 }
