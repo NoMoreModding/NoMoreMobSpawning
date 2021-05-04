@@ -1,0 +1,13 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "nomoremobspawning:anti_mob_beacon"
+        }
+      ]
+    }
+  ]
+}
