@@ -1,9 +1,12 @@
 package com.hagenberg.fh.nomoremobspawning;
 
+import com.hagenberg.fh.nomoremobspawning.core.init.BlockRegistry;
+import com.hagenberg.fh.nomoremobspawning.core.init.ItemRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
@@ -28,10 +31,13 @@ public class NoMoreMobSpawing
 
 
     public NoMoreMobSpawing() {
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+
         // Register the setup method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+       bus.addListener(this::setup);
 
-
+        BlockRegistry.BLOCKS.register(bus);
+        ItemRegistry.ITEMS.register(bus);
 
 
         // Register ourselves for server and other game events we are interested in
