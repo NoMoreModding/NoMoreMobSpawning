@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "# #",
+        "#N#",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:magma_block"
+        },
+        "N": {
+            "item": "minecraft:nether_star"
+        }
+    },
+    "result": {
+        "item": "nomoremobspawning:anti_mob_beacon",
+        "count": 1
+    }
+}
