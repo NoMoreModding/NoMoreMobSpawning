@@ -30,7 +30,10 @@ public class AntiMobBeaconRawBlock extends Block {
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
         if (player.inventory.getCurrentItem().getItem() == Items.WATER_BUCKET){
           worldIn.setBlockState(pos , BlockRegistry.ANTI_MOB_BEACON.get().getDefaultState());
-          player.inventory.setInventorySlotContents(player.inventory.currentItem,new ItemStack(Items.BUCKET));
+          if (!player.isCreative()){
+              player.inventory.setInventorySlotContents(player.inventory.currentItem,new ItemStack(Items.BUCKET));
+          }
+
           //worldIn.playSound(player,pos, , SoundCategory.BLOCKS,0,1);
 
           return ActionResultType.CONSUME;
