@@ -1,5 +1,8 @@
 {
   "variants": {
-    "" : {"model" : "nomoremobspawning:block/anti_mob_beacon"}
+    "level=0" : {"model" : "nomoremobspawning:block/anti_mob_beacon_0"},
+    "level=1" : {"model" : "nomoremobspawning:block/anti_mob_beacon_1"},
+    "level=2" : {"model" : "nomoremobspawning:block/anti_mob_beacon_2"},
+    "level=3" : {"model" : "nomoremobspawning:block/anti_mob_beacon_3"}
   }
 }

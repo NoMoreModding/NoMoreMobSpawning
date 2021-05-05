@@ -10,12 +10,10 @@ import net.minecraft.client.audio.SoundEventAccessor;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.sound.SoundLoadEvent;
 import org.lwjgl.system.CallbackI;
@@ -34,10 +32,15 @@ public class AntiMobBeaconRawBlock extends Block {
               player.inventory.setInventorySlotContents(player.inventory.currentItem,new ItemStack(Items.BUCKET));
           }
 
-          //worldIn.playSound(player,pos, , SoundCategory.BLOCKS,0,1);
+            worldIn.playSound((PlayerEntity)null, pos, SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
 
           return ActionResultType.CONSUME;
         }
         return ActionResultType.PASS;
+    }
+
+    @Override
+    public int getLightValue(BlockState state, IBlockReader world, BlockPos pos) {
+        return AntiMobBeaconBlock.LIGHTLEVEL_UNFILLED;
     }
 }
