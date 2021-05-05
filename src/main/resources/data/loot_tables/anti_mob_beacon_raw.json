@@ -5,7 +5,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "nomoremobspawning:anti_mob_beacon"
+          "name": "nomoremobspawning:anti_mob_beacon_raw"
         }
       ]
     }

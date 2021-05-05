@@ -14,7 +14,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "nomoremobspawning:anti_mob_beacon"
+        "recipe": "nomoremobspawning:anti_mob_beacon_raw"
       }
     }
   },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "nomoremobspawning:anti_mob_beacon"
+      "nomoremobspawning:anti_mob_beacon_raw"
     ]
   }
 }

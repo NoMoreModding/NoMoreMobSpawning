@@ -14,7 +14,7 @@
         }
     },
     "result": {
-        "item": "nomoremobspawning:anti_mob_beacon",
+        "item": "nomoremobspawning:anti_mob_beacon_raw",
         "count": 1
     }
 }
