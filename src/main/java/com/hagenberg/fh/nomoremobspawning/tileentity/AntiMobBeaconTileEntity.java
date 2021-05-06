@@ -2,6 +2,7 @@ package com.hagenberg.fh.nomoremobspawning.tileentity;
 
 import com.hagenberg.fh.nomoremobspawning.common.block.AntiMobBeaconBlock;
 import com.hagenberg.fh.nomoremobspawning.core.init.TileEntityRegistry;
+import config.AMBTileEntityConfig;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.BatEntity;
@@ -15,13 +16,13 @@ import java.util.List;
 
 public class AntiMobBeaconTileEntity extends TileEntity implements ITickableTileEntity {
 
-    public static long REMOVAL_UPDATE_TICKS = 1;
-    public static long EFFECT_UPDATE_TICKS = 80;
-    public static int RANGE_MULTIPLIER = 10;
-    public static int RANGE_ADD = 10;
-    public static int EFFECT_RANGE_ADD = 10;
-    public static boolean DO_EFFECTS = true;
-    public static boolean REMOVE_BATS = true;
+    private final long REMOVAL_UPDATE_TICKS = AMBTileEntityConfig.REMOVAL_UPDATE_TICKS.get();
+    private final long EFFECT_UPDATE_TICKS = AMBTileEntityConfig.EFFECT_UPDATE_TICKS.get();
+private final int RANGE_MULTIPLIER = AMBTileEntityConfig.RANGE_MULTIPLIER.get();
+    private final int RANGE_ADD = AMBTileEntityConfig.RANGE_ADD.get();
+    private final int EFFECT_RANGE_ADD = AMBTileEntityConfig.EFFECT_RANGE_ADD.get();
+    private final boolean DO_EFFECTS = AMBTileEntityConfig.DO_EFFECTS.get();
+    private final boolean REMOVE_BATS = AMBTileEntityConfig.REMOVE_BATS.get();
     private int level;
 
     public AntiMobBeaconTileEntity() {
@@ -30,7 +31,7 @@ public class AntiMobBeaconTileEntity extends TileEntity implements ITickableTile
 
     @Override
     public void tick() {
-
+    //TODO change level get every tick to maybe when blockstate is changed to improve perf (if optimization is needed)
         level = this.getBlockState().get(AntiMobBeaconBlock.LEVEL);
 
         if (level > 0){

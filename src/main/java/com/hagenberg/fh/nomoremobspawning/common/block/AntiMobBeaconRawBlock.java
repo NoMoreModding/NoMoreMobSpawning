@@ -15,6 +15,7 @@ import net.minecraft.state.BooleanProperty;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
@@ -27,7 +28,7 @@ public class AntiMobBeaconRawBlock extends Block {
     private static final VoxelShape BASE = Block.makeCuboidShape(1,0,1,15,5,15);
     private static final VoxelShape UPPER = Block.makeCuboidShape(2,5,2,14,16,14);
 
-    private static final VoxelShape WHOLE = VoxelShapes.or(BASE,UPPER);
+    public static final VoxelShape WHOLE = VoxelShapes.or(BASE,UPPER);
 
 
     public AntiMobBeaconRawBlock (Properties properties){
@@ -55,6 +56,12 @@ public class AntiMobBeaconRawBlock extends Block {
             return ActionResultType.SUCCESS;
         }
         return ActionResultType.PASS;
+    }
+
+    @SuppressWarnings("deprecation")
+    @Override
+    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+        return WHOLE;
     }
 
     @Override

@@ -20,6 +20,8 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
@@ -28,6 +30,8 @@ import net.minecraftforge.event.world.NoteBlockEvent;
 
 import javax.annotation.Nullable;
 
+
+import static com.hagenberg.fh.nomoremobspawning.common.block.AntiMobBeaconRawBlock.WHOLE;
 
 public class AntiMobBeaconBlock extends Block {
 
@@ -63,7 +67,7 @@ public class AntiMobBeaconBlock extends Block {
                         player.setHeldItem(handIn, new ItemStack(Items.BUCKET));
                     }
                     this.setLavaLevel(worldIn, pos, state, i +1);
-                    worldIn.playSound((PlayerEntity)null, pos, SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                    worldIn.playSound((PlayerEntity)null, pos, SoundEvents.ITEM_BUCKET_EMPTY_LAVA, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 }
                 return ActionResultType.CONSUME;
             }
@@ -79,7 +83,7 @@ public class AntiMobBeaconBlock extends Block {
                     }
 
                     this.setLavaLevel(worldIn,pos,state,state.get(LEVEL)-1);
-                    worldIn.playSound((PlayerEntity) null,pos,SoundEvents.ITEM_BUCKET_FILL, SoundCategory.BLOCKS,1.0F, 1.0F);
+                    worldIn.playSound((PlayerEntity) null,pos,SoundEvents.ITEM_BUCKET_FILL_LAVA, SoundCategory.BLOCKS,1.0F, 1.0F);
                 }
                 return ActionResultType.SUCCESS;
             }
@@ -89,6 +93,12 @@ public class AntiMobBeaconBlock extends Block {
 
     public void setLavaLevel(World world, BlockPos pos, BlockState state, int level){
         world.setBlockState(pos, state.with(LEVEL, Integer.valueOf(MathHelper.clamp(level,0,3))));
+    }
+
+    @SuppressWarnings("deprecation")
+    @Override
+    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+        return AntiMobBeaconRawBlock.WHOLE;
     }
 
     @Override
