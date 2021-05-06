@@ -93,6 +93,8 @@ public class AntiMobBeaconBlock extends Block {
 
     public void setLavaLevel(World world, BlockPos pos, BlockState state, int level){
         world.setBlockState(pos, state.with(LEVEL, Integer.valueOf(MathHelper.clamp(level,0,3))));
+//        AntiMobBeaconTileEntity antiMobBeaconTileEntity = (AntiMobBeaconTileEntity) world.getTileEntity(pos);
+//        antiMobBeaconTileEntity.setLevel(world.getBlockState(pos).get(LEVEL));
     }
 
     @SuppressWarnings("deprecation")
