@@ -1,14 +1,17 @@
 package com.hagenberg.fh.nomoremobspawning.common.block;
 
 import com.hagenberg.fh.nomoremobspawning.core.init.BlockRegistry;
+import com.hagenberg.fh.nomoremobspawning.tileentity.AntiMobBeaconTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
@@ -17,10 +20,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraftforge.event.world.NoteBlockEvent;
 
 import javax.annotation.Nullable;
+
+//todo on break replace block with flowing lava if level != 0
 
 public class AntiMobBeaconBlock extends Block {
 
@@ -33,6 +39,12 @@ public class AntiMobBeaconBlock extends Block {
 
     public AntiMobBeaconBlock (Properties properties){
         super(properties);
+    }
+
+    @Nullable
+    @Override
+    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
+        return new AntiMobBeaconTileEntity();
     }
 
     @SuppressWarnings("deprecation")
@@ -90,4 +102,11 @@ public class AntiMobBeaconBlock extends Block {
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(LEVEL);
     }
+
+//    @Override
+//    public void onPlayerDestroy(IWorld worldIn, BlockPos pos, BlockState state) {
+//        if (state.get(LEVEL) != 0){
+//            worldIn.setBlockState(pos, LAVA,0);
+//        }
+//    }
 }

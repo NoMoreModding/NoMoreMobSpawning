@@ -32,7 +32,7 @@ public class AntiMobBeaconRawBlock extends Block {
               player.inventory.setInventorySlotContents(player.inventory.currentItem,new ItemStack(Items.BUCKET));
           }
 
-            worldIn.playSound((PlayerEntity)null, pos, SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
+            worldIn.playSound((PlayerEntity)null, pos, SoundEvents.BLOCK_LAVA_EXTINGUISH, SoundCategory.BLOCKS, 1.0F, 1.0F);
 
           return ActionResultType.CONSUME;
         }
