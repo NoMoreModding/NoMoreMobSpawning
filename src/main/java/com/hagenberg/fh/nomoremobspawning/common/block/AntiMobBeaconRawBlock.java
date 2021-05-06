@@ -38,7 +38,10 @@ public class AntiMobBeaconRawBlock extends Block {
     @Override
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
         if (player.inventory.getCurrentItem().getItem() == Items.WATER_BUCKET){
-          worldIn.setBlockState(pos , BlockRegistry.ANTI_MOB_BEACON.get().getDefaultState());
+            if (!worldIn.isRemote()){
+                worldIn.setBlockState(pos , BlockRegistry.ANTI_MOB_BEACON.get().getDefaultState());
+            }
+
           if (!player.isCreative()){
               player.inventory.setInventorySlotContents(player.inventory.currentItem,new ItemStack(Items.BUCKET));
           }

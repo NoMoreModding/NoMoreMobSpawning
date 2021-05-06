@@ -3,6 +3,7 @@ package com.hagenberg.fh.nomoremobspawning;
 import com.hagenberg.fh.nomoremobspawning.core.init.BlockRegistry;
 import com.hagenberg.fh.nomoremobspawning.core.init.ItemRegistry;
 import com.hagenberg.fh.nomoremobspawning.core.init.SoundRegistry;
+import com.hagenberg.fh.nomoremobspawning.core.init.TileEntityRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -40,6 +41,7 @@ public class NoMoreMobSpawing
         BlockRegistry.BLOCKS.register(bus);
         ItemRegistry.ITEMS.register(bus);
         SoundRegistry.SOUNDEVENTS.register(bus);
+        TileEntityRegistry.TILE_ENTITIES.register(bus);
 
 
         // Register ourselves for server and other game events we are interested in
