@@ -18,9 +18,10 @@ public class BlockRegistry {
 
     public static final RegistryObject<Block> ANTI_MOB_BEACON =
             BLOCKS.register("anti_mob_beacon", () -> new AntiMobBeaconBlock(
-                    AbstractBlock.Properties.create(Material.IRON).notSolid()));
+                    AbstractBlock.Properties.create(Material.IRON).notSolid().hardnessAndResistance(3.0F)));
 
     public static final RegistryObject<Block> ANTI_MOB_BEACON_RAW =
             BLOCKS.register("anti_mob_beacon_raw", () -> new AntiMobBeaconRawBlock(
-                    AbstractBlock.Properties.create(Material.IRON).notSolid()));
+                    AbstractBlock.Properties.create(Material.IRON).notSolid().hardnessAndResistance(3.0F)));
+
 }

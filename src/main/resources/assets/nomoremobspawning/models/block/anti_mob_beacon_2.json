@@ -4,7 +4,7 @@
 		"0": "block/obsidian",
 		"3": "nomoremobspawning:block/anti_mob_beacon",
 		"4": "block/lava_flow",
-		"particle": "block/obsidian"
+		"particle": "nomoremobspawning:block/anti_mob_beacon"
 	},
 	"elements": [
 		{
@@ -68,8 +68,8 @@
 			}
 		},
 		{
-			"from": [5, 9, 5],
-			"to": [11, 10, 11],
+			"from": [5, 11, 5],
+			"to": [11, 12, 11],
 			"faces": {
 				"north": {"uv": [0, 0, 6, 1], "texture": "#4"},
 				"east": {"uv": [0, 0, 6, 1], "texture": "#4"},

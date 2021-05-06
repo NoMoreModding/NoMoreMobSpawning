@@ -1,0 +1,9 @@
+{
+  "wrongly_placed_lava": {
+    "category" : "blocks",
+    "sounds": [{
+      "name": "nomoremobspawning:wrongly_placed_lava",
+      "stream": false
+    }]
+  }
+}
