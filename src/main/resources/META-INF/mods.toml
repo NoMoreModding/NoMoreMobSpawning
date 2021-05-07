@@ -14,7 +14,8 @@ displayName="No More Mob Spawning" #mandatory
 credits="Thanks to Wolfgang Hochleitner and Michael Lankes"
 authors="Tobias Filler, Lukas Hartinger"
 description='''
-providing an elegant way for preventing mob spawing
+A small mod that provides the player with a way to prevent mobs from spawning, called the Anti-Mob Beacon. There is no more need to have builts light up in total or spawn strings to stop mobs from spawning,
+you can now have a dark area without worrying about mobs spawning. :3
 '''
 
 [[dependencies.nomoretorchspam]]
