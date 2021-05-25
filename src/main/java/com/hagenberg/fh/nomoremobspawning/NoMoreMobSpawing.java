@@ -41,7 +41,7 @@ public class NoMoreMobSpawing
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, Config.config);
 
-        Config.configLoad(Config.config, FMLPaths.CONFIGDIR.get().resolve("nomoremobspawning-config.toml").toString());
+        Config.loadConfig(Config.config, FMLPaths.CONFIGDIR.get().resolve("nomoremobspawning-config.toml").toString());
         LOGGER.error(FMLPaths.CONFIGDIR.get().toString());
         // Register the setup method for modloading
        bus.addListener(this::setup);
