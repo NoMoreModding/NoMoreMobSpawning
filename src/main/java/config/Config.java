@@ -18,7 +18,7 @@ public class Config {
         config = builder.build();
     }
 
-    public static void configLoad(ForgeConfigSpec config, String name){
+    public static void loadConfig(ForgeConfigSpec config, String name){
         final CommentedFileConfig fileConfig = CommentedFileConfig.builder(new File(name)).sync().autosave().writingMode(WritingMode.REPLACE).build();
         fileConfig.load();
         config.setConfig(fileConfig);
