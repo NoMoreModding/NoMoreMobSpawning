@@ -5,7 +5,7 @@ license="MIT"
 [[mods]]
 modId="nomoremobspawning" #mandatory
 
-version="1.16.5-1.0.0-beta" #mandatory
+version="1.16.5-1.0.1-beta" #mandatory
  # A display name for the mod
 displayName="No More Mob Spawning" #mandatory
 
