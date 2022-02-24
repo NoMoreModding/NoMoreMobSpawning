@@ -9,6 +9,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.client.audio.Sound;
 import net.minecraft.client.audio.SoundEventAccessor;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.BucketItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.state.BooleanProperty;
@@ -43,8 +44,8 @@ public class AntiMobBeaconRawBlock extends Block {
                 worldIn.setBlockState(pos , BlockRegistry.ANTI_MOB_BEACON.get().getDefaultState());
             }
 
-          if (!player.isCreative()){
-              player.inventory.setInventorySlotContents(player.inventory.currentItem,new ItemStack(Items.BUCKET));
+          if (!player.abilities.isCreativeMode){
+              player.setHeldItem(handIn, new ItemStack(Items.BUCKET));
           }
 
             worldIn.playSound((PlayerEntity)null, pos, SoundEvents.BLOCK_LAVA_EXTINGUISH, SoundCategory.BLOCKS, 1.0F, 1.0F);

@@ -63,7 +63,7 @@ public class AntiMobBeaconBlock extends Block {
             int i = state.get(LEVEL);
             if(stack.getItem() == Items.LAVA_BUCKET){
                 if(i < 3 && !worldIn.isRemote){
-                    if(!player.isCreative()){
+                    if (!player.abilities.isCreativeMode){
                         player.setHeldItem(handIn, new ItemStack(Items.BUCKET));
                     }
                     this.setLavaLevel(worldIn, pos, state, i +1);

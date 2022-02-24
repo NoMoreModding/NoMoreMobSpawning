@@ -2,6 +2,7 @@ package com.hagenberg.fh.nomoremobspawning.tileentity;
 
 import com.hagenberg.fh.nomoremobspawning.NoMoreMobSpawing;
 import com.hagenberg.fh.nomoremobspawning.common.block.AntiMobBeaconBlock;
+import com.hagenberg.fh.nomoremobspawning.core.init.ParticleRegistry;
 import com.hagenberg.fh.nomoremobspawning.core.init.TileEntityRegistry;
 import config.AMBTileEntityConfig;
 import net.minecraft.client.particle.ParticleManager;
@@ -31,6 +32,10 @@ public class AntiMobBeaconTileEntity extends TileEntity implements ITickableTile
     private final boolean DO_EFFECTS = AMBTileEntityConfig.DO_EFFECTS.get();
     private final boolean REMOVE_BATS = AMBTileEntityConfig.REMOVE_BATS.get();
     private int level = 0;
+    private int amountOfRings = 3;
+    private int deltaAmountOfRings = 0;
+    private long ringUpdateTicks = 100;
+    private long ringSpawnOffset = 6;
 
 
     public AntiMobBeaconTileEntity() {
@@ -49,6 +54,14 @@ public class AntiMobBeaconTileEntity extends TileEntity implements ITickableTile
             }
             if (this.world.getGameTime() % EFFECT_UPDATE_TICKS == 0L && DO_EFFECTS) {
                 this.addEffectToMobs();
+            }
+
+            if (this.world.getGameTime() % ringSpawnOffset == 0L && deltaAmountOfRings++ < amountOfRings ){
+                spawnParticle(ParticleRegistry.RING_PARTICLE.get(),0.006D);
+            }
+
+            if (this.world.getGameTime() % ringUpdateTicks == 0L) {
+                deltaAmountOfRings = 0;
             }
 
             Random random = this.world.getRandom();
